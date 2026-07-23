@@ -1,6 +1,25 @@
-# SupportFlow
+# SupportFlow – Support Ticket Management System
 
-Internal web application for support teams to manage customer issues throughout their lifecycle — from ticket creation to resolution.
+SupportFlow is a full-stack web application designed to help support teams efficiently manage customer support requests throughout their lifecycle. The application provides secure authentication, ticket management, team management, reporting, and a responsive user interface for streamlined support operations.
+
+---
+
+## Features
+
+- JWT-based User Authentication
+- User Registration & Login
+- Protected Routes
+- Dashboard with support metrics
+- Ticket Management (Create, Read, Update, Delete)
+- Team Management
+- Reports Dashboard
+- RESTful API
+- MongoDB Database Integration
+- Responsive User Interface
+- Form Validation
+- Error Handling
+
+---
 
 ## Tech Stack
 
@@ -9,104 +28,227 @@ Internal web application for support teams to manage customer issues throughout 
 | Frontend | React 18, Vite, JavaScript, SCSS |
 | Backend | Node.js, Express |
 | Database | MongoDB, Mongoose |
+| Authentication | JSON Web Token (JWT) |
+
+---
+
+## Project Architecture
+
+```text
+Frontend (React + Vite)
+          │
+          ▼
+Backend (Express REST API)
+          │
+          ▼
+MongoDB Database
+```
+
+---
 
 ## Prerequisites
 
-- **Node.js** 18 or later
-- **MongoDB** 6+ running locally (or a remote connection string)
-- **npm** 9+
+Before running the project, ensure the following are installed:
 
-## Quick Start
+- Node.js 18 or later
+- npm 9 or later
+- MongoDB 6+ (Local or MongoDB Atlas)
 
-### 1. Install dependencies
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Anjalidev18/SupportFlow-Project.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd SupportFlow-Project
+```
+
+Install all dependencies:
 
 ```bash
 npm install
 ```
 
-### 2. Configure environment
+---
+
+## Environment Variables
+
+Create environment files from the provided examples.
 
 ```bash
 cp backend/.env.example backend/.env
 cp frontend/.env.example frontend/.env
 ```
 
-Edit `backend/.env` if your MongoDB connection differs from the default.
+Example backend configuration:
 
-### 3. Start MongoDB
+```env
+PORT=5000
+NODE_ENV=development
+MONGODB_URI=mongodb://localhost:27017/supportflow
+JWT_SECRET=your-secret-key
+JWT_EXPIRES_IN=7d
+```
 
-Ensure MongoDB is running on `mongodb://localhost:27017` (default), or update `MONGODB_URI` in `backend/.env`.
+Update the values if your local environment differs.
 
-### 4. Run the application
+---
+
+## Running the Application
+
+Start both frontend and backend simultaneously:
 
 ```bash
-# Start both frontend and backend
 npm run dev
 ```
 
-Or run individually:
+Or start each service individually:
 
 ```bash
-npm run dev:backend   # API on http://localhost:5000
-npm run dev:frontend  # App on http://localhost:5173
+npm run dev:backend
 ```
 
-### 5. Verify
+```bash
+npm run dev:frontend
+```
 
-- **Frontend:** [http://localhost:5173](http://localhost:5173) — landing page with system status
-- **Health check:** [http://localhost:5000/api/health](http://localhost:5000/api/health)
+---
+
+## Application URLs
+
+| Service | URL |
+|----------|-----|
+| Frontend | http://localhost:5173 |
+| Backend API | http://localhost:5000 |
+| Health Check | http://localhost:5000/api/health |
+
+---
 
 ## Project Structure
 
-```
+```text
 SupportFlow/
-├── backend/           # Express REST API
-│   └── src/
-│       ├── config/    # Environment & database
-│       ├── routes/    # Route definitions
-│       ├── controllers/
-│       ├── services/  # Business logic (Phase 2)
-│       ├── models/    # Mongoose schemas (Phase 2)
-│       └── middleware/
-├── frontend/          # React SPA
-│   └── src/
-│       ├── components/ui/     # Design system primitives
-│       ├── components/layout/
-│       ├── pages/
-│       ├── styles/            # SCSS design tokens
-│       └── services/          # API client
-├── docs/              # Requirements, architecture, API contract
-└── ai-prompts/        # AI collaboration journal
+│
+├── backend/
+│   ├── src/
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── middleware/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   └── utils/
+│   │
+│   └── package.json
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── features/
+│   │   ├── hooks/
+│   │   ├── layouts/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── styles/
+│   │   └── utils/
+│   │
+│   └── package.json
+│
+├── docs/
+├── ai-prompts/
+├── package.json
+└── README.md
 ```
 
-## Scripts
+---
+
+## Available Scripts
 
 | Command | Description |
-|---------|-------------|
-| `npm run dev` | Start frontend + backend concurrently |
-| `npm run dev:backend` | Start API only |
+|----------|-------------|
+| `npm run dev` | Start frontend and backend |
 | `npm run dev:frontend` | Start frontend only |
-| `npm run lint` | Lint both packages |
-| `npm run format` | Format with Prettier |
+| `npm run dev:backend` | Start backend only |
+| `npm run lint` | Run ESLint |
+| `npm run format` | Format code using Prettier |
 
-## Documentation
+---
 
-- [Architecture](./docs/architecture.md)
-- [Requirements Analysis](./docs/requirements-analysis.md)
-- [Acceptance Criteria](./docs/acceptance-criteria.md)
-- [Implementation Plan](./docs/implementation-plan.md)
-- [Design Notes](./docs/design-notes.md)
-- [API Contract](./docs/api-contract.md)
+## API Overview
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| POST | `/api/auth/register` | Register a new user |
+| POST | `/api/auth/login` | Authenticate user |
+| GET | `/api/tickets` | Retrieve all tickets |
+| POST | `/api/tickets` | Create a new ticket |
+| PUT | `/api/tickets/:id` | Update an existing ticket |
+| DELETE | `/api/tickets/:id` | Delete a ticket |
+| GET | `/api/teams` | Retrieve all teams |
+| GET | `/api/reports` | Retrieve dashboard reports |
+
+For detailed API information, refer to:
+
+- `docs/api-contract.md`
+
+---
+
+## Project Documentation
+
+The repository includes supporting documentation created during the development process:
+
+- Requirements Analysis
+- Implementation Plan
+- Architecture Documentation
+- Design Notes
+- API Contract
+- Acceptance Criteria
+- Test Strategy
+- Debugging Notes
+- Code Review Notes
+- Reflection
+- Pull Request Description
+- AI Prompt History
+
+---
 
 ## Current Status
 
-**Phase 1 — Project Setup & Foundation** (in progress)
+The project has been completed and includes:
 
-- Project scaffolded with health check endpoint
-- Design system tokens and UI primitives established
-- Landing page with live API status indicator
-- Business features (auth, tickets, dashboard) — Phase 2+
+- Secure Authentication using JWT
+- Dashboard Module
+- Ticket Management
+- Team Management
+- Reports Dashboard
+- REST API Backend
+- MongoDB Integration
+- Responsive Design
+- Form Validation
+- Error Handling
+
+---
+
+## Future Improvements
+
+Possible future enhancements include:
+
+- Role-based access control
+- Email notifications
+- File attachments for tickets
+- Advanced analytics and reporting
+- Real-time notifications
+- Unit and integration testing
+
+---
 
 ## License
 
-Private — internal use only.
+This project was developed for educational and evaluation purposes.
