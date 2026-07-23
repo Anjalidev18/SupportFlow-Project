@@ -48,11 +48,11 @@ MongoDB Database
 
 ## Prerequisites
 
-Before running the project, ensure the following are installed:
+Before running the project, ensure you have:
 
 - Node.js 18 or later
 - npm 9 or later
-- MongoDB 6+ (Local or MongoDB Atlas)
+- MongoDB 6+ (Local installation or MongoDB Atlas)
 
 ---
 
@@ -70,7 +70,7 @@ Navigate to the project directory:
 cd SupportFlow-Project
 ```
 
-Install all dependencies:
+Install dependencies:
 
 ```bash
 npm install
@@ -80,14 +80,13 @@ npm install
 
 ## Environment Variables
 
-Create environment files from the provided examples.
+Create the backend environment file:
 
 ```bash
 cp backend/.env.example backend/.env
-cp frontend/.env.example frontend/.env
 ```
 
-Example backend configuration:
+Example configuration:
 
 ```env
 PORT=5000
@@ -101,15 +100,26 @@ Update the values if your local environment differs.
 
 ---
 
+## Getting Started
+
+1. Ensure MongoDB is running.
+2. Create the backend `.env` file.
+3. Start the application.
+4. Register a new account.
+5. Log in using your registered credentials.
+6. Begin managing tickets, teams, and reports.
+
+---
+
 ## Running the Application
 
-Start both frontend and backend simultaneously:
+Start both frontend and backend:
 
 ```bash
 npm run dev
 ```
 
-Or start each service individually:
+Or start them individually:
 
 ```bash
 npm run dev:backend
@@ -145,7 +155,7 @@ SupportFlow/
 │   │   ├── routes/
 │   │   ├── services/
 │   │   └── utils/
-│   │
+│   ├── .env.example
 │   └── package.json
 │
 ├── frontend/
@@ -158,7 +168,6 @@ SupportFlow/
 │   │   ├── services/
 │   │   ├── styles/
 │   │   └── utils/
-│   │
 │   └── package.json
 │
 ├── docs/
@@ -173,28 +182,17 @@ SupportFlow/
 
 | Command | Description |
 |----------|-------------|
-| `npm run dev` | Start frontend and backend |
-| `npm run dev:frontend` | Start frontend only |
-| `npm run dev:backend` | Start backend only |
+| `npm run dev` | Start frontend and backend concurrently |
+| `npm run dev:frontend` | Start the frontend |
+| `npm run dev:backend` | Start the backend API |
 | `npm run lint` | Run ESLint |
 | `npm run format` | Format code using Prettier |
 
 ---
 
-## API Overview
+## API Documentation
 
-| Method | Endpoint | Description |
-|---------|----------|-------------|
-| POST | `/api/auth/register` | Register a new user |
-| POST | `/api/auth/login` | Authenticate user |
-| GET | `/api/tickets` | Retrieve all tickets |
-| POST | `/api/tickets` | Create a new ticket |
-| PUT | `/api/tickets/:id` | Update an existing ticket |
-| DELETE | `/api/tickets/:id` | Delete a ticket |
-| GET | `/api/teams` | Retrieve all teams |
-| GET | `/api/reports` | Retrieve dashboard reports |
-
-For detailed API information, refer to:
+The complete list of API endpoints, request/response formats, and implementation details can be found in:
 
 - `docs/api-contract.md`
 
@@ -202,7 +200,7 @@ For detailed API information, refer to:
 
 ## Project Documentation
 
-The repository includes supporting documentation created during the development process:
+This repository includes the following documentation:
 
 - Requirements Analysis
 - Implementation Plan
@@ -223,12 +221,13 @@ The repository includes supporting documentation created during the development 
 
 The project has been completed and includes:
 
-- Secure Authentication using JWT
-- Dashboard Module
+- JWT Authentication
+- User Registration & Login
+- Dashboard
 - Ticket Management
 - Team Management
 - Reports Dashboard
-- REST API Backend
+- REST API
 - MongoDB Integration
 - Responsive Design
 - Form Validation
@@ -238,12 +237,12 @@ The project has been completed and includes:
 
 ## Future Improvements
 
-Possible future enhancements include:
+Potential future enhancements include:
 
 - Role-based access control
 - Email notifications
-- File attachments for tickets
-- Advanced analytics and reporting
+- File attachments
+- Advanced analytics
 - Real-time notifications
 - Unit and integration testing
 
