@@ -1,0 +1,21 @@
+@use '../base/variables' as *;
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-3;
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+    opacity: 0.9;
+  }
+
+  &__name {
+    font-size: $font-size-md;
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+    letter-spacing: -0.01em;
+  }
+}

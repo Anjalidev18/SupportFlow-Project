@@ -1,0 +1,54 @@
+@use '../base/variables' as *;
+
+.quick-actions {
+  &__title {
+    font-size: $font-size-md;
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+    margin-bottom: $space-4;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__btn {
+    width: 100%;
+    justify-content: center;
+    gap: $space-2;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-2;
+    width: 100%;
+    padding: $space-2 $space-4;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text;
+    background-color: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    text-decoration: none;
+    transition:
+      background-color $transition-fast,
+      border-color $transition-fast;
+
+    &:hover {
+      background-color: $color-surface-hover;
+      border-color: $color-border-strong;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+    }
+  }
+}

@@ -1,0 +1,71 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.hero {
+  padding: $space-16 $space-6 $space-12;
+  text-align: center;
+
+  &__inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  &__badge {
+    display: inline-block;
+    padding: $space-1 $space-3;
+    margin-bottom: $space-6;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $color-primary;
+    background-color: $color-primary-subtle;
+    border-radius: $radius-full;
+  }
+
+  &__title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    color: $color-text;
+    margin-bottom: $space-4;
+    letter-spacing: -0.02em;
+  }
+
+  &__subtitle {
+    font-size: $font-size-md;
+    color: $color-text-secondary;
+    line-height: $line-height-relaxed;
+    margin-bottom: $space-8;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-3;
+
+    @include respond-to(sm) {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    a {
+      text-decoration: none;
+      width: 100%;
+
+      @include respond-to(sm) {
+        width: auto;
+      }
+
+      .btn {
+        width: 100%;
+
+        @include respond-to(sm) {
+          width: auto;
+        }
+      }
+    }
+  }
+}

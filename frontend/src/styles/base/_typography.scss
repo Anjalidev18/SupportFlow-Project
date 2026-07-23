@@ -1,0 +1,53 @@
+@use 'variables' as *;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  color: $color-text;
+}
+
+h1 {
+  font-size: $font-size-xl;
+}
+
+h2 {
+  font-size: $font-size-lg;
+}
+
+h3 {
+  font-size: $font-size-md;
+}
+
+p {
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+}
+
+.text-sm {
+  font-size: $font-size-sm;
+}
+
+.text-xs {
+  font-size: $font-size-xs;
+}
+
+.text-secondary {
+  color: $color-text-secondary;
+}
+
+.text-tertiary {
+  color: $color-text-tertiary;
+}
+
+.font-medium {
+  font-weight: $font-weight-medium;
+}
+
+.font-semibold {
+  font-weight: $font-weight-semibold;
+}

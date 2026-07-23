@@ -1,0 +1,50 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.tickets-page {
+  &__loading {
+    @include flex-center;
+    min-height: 280px;
+  }
+
+  &__error {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $space-3;
+    margin-bottom: var(--space-4);
+  }
+}
+
+.tickets-table {
+  &__title-cell {
+    font-weight: $font-weight-medium;
+    color: $color-text;
+    max-width: 400px;
+    @include truncate;
+  }
+
+  &__date {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    white-space: nowrap;
+  }
+
+  &__row {
+    cursor: default;
+    transition: background-color $transition-fast;
+  }
+}
+
+@media (max-width: #{$bp-md - 1px}) {
+  .tickets-table {
+    .table {
+      font-size: $font-size-xs;
+
+      th,
+      td {
+        padding: $space-2 $space-3;
+      }
+    }
+  }
+}

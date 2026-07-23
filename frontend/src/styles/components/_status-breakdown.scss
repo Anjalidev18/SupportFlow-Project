@@ -1,0 +1,83 @@
+@use '../base/variables' as *;
+
+.status-breakdown {
+  &__title {
+    font-size: $font-size-md;
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+    margin-bottom: $space-5;
+  }
+
+  &__bar {
+    display: flex;
+    height: 8px;
+    border-radius: $radius-full;
+    overflow: hidden;
+    margin-bottom: $space-5;
+    background-color: $color-surface-hover;
+  }
+
+  &__segment {
+    min-width: 2px;
+    transition: width $transition-slow;
+  }
+
+  &__legend {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+    margin-bottom: $space-4;
+  }
+
+  &__legend-item {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    font-size: $font-size-sm;
+  }
+
+  &__swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  &__legend-label {
+    flex: 1;
+    color: $color-text-secondary;
+  }
+
+  &__legend-value {
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__total {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: $space-4;
+    border-top: 1px solid $color-border;
+  }
+
+  &__total-value {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    line-height: 1;
+  }
+
+  &__total-label {
+    font-size: $font-size-xs;
+    color: $color-text-tertiary;
+    margin-top: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-breakdown__segment {
+    transition: none;
+  }
+}

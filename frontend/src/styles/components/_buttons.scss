@@ -1,0 +1,106 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  font-weight: $font-weight-medium;
+  border-radius: $radius-md;
+  border: 1px solid transparent;
+  transition: background-color $transition-fast, border-color $transition-fast,
+    color $transition-fast, box-shadow $transition-fast;
+  white-space: nowrap;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  // Sizes
+  &--sm {
+    height: 28px;
+    padding: 0 $space-3;
+    font-size: $font-size-sm;
+  }
+
+  &--md {
+    height: 32px;
+    padding: 0 14px;
+    font-size: $font-size-base;
+  }
+
+  &--lg {
+    height: 36px;
+    padding: 0 18px;
+    font-size: $font-size-base;
+  }
+
+  // Variants
+  &--primary {
+    background-color: $color-primary;
+    color: white;
+
+    &:hover:not(:disabled) {
+      background-color: $color-primary-hover;
+    }
+  }
+
+  &--secondary {
+    background-color: $color-surface;
+    color: $color-text;
+    border-color: $color-border;
+
+    &:hover:not(:disabled) {
+      background-color: $color-surface-hover;
+      border-color: $color-border-strong;
+    }
+  }
+
+  &--ghost {
+    background-color: transparent;
+    color: $color-text-secondary;
+
+    &:hover:not(:disabled) {
+      background-color: $color-surface-hover;
+      color: $color-text;
+    }
+  }
+
+  &--danger {
+    background-color: $color-error;
+    color: white;
+
+    &:hover:not(:disabled) {
+      background-color: darken($color-error, 8%);
+    }
+  }
+
+  &--loading {
+    position: relative;
+    color: transparent;
+    pointer-events: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border: 2px solid currentColor;
+      border-right-color: transparent;
+      border-radius: 50%;
+      animation: btn-spin 0.6s linear infinite;
+    }
+  }
+}
+
+@keyframes btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

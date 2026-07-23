@@ -1,0 +1,77 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.activity-feed {
+  &__title {
+    font-size: $font-size-md;
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+    margin-bottom: $space-5;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  &__item {
+    display: flex;
+    gap: $space-3;
+    padding: $space-3 0;
+    border-bottom: 1px solid $color-border;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    &:first-child {
+      padding-top: 0;
+    }
+  }
+
+  &__icon {
+    @include flex-center;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    background-color: $color-surface-hover;
+    border-radius: $radius-full;
+    margin-top: 2px;
+  }
+
+  &__text {
+    font-size: $font-size-sm;
+    color: $color-text;
+    line-height: $line-height-base;
+
+    strong {
+      font-weight: $font-weight-semibold;
+    }
+  }
+
+  &__meta {
+    font-size: $font-size-xs;
+    color: $color-text-tertiary;
+    margin-top: 2px;
+  }
+
+  &__link {
+    color: $color-text-secondary;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-primary;
+      text-decoration: underline;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+      border-radius: $radius-sm;
+    }
+  }
+}

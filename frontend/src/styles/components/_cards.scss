@@ -1,0 +1,46 @@
+@use '../base/variables' as *;
+
+.card {
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $space-5;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: $space-4;
+    margin-bottom: $space-4;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__title {
+    font-size: $font-size-md;
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+  }
+
+  &__body {
+    color: $color-text-secondary;
+
+    &--flush {
+      padding: 0;
+      color: inherit;
+    }
+  }
+
+  &--flush {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  &--hover {
+    transition: border-color $transition-fast, box-shadow $transition-fast;
+
+    &:hover {
+      border-color: $color-border-strong;
+      box-shadow: $shadow-sm;
+    }
+  }
+}

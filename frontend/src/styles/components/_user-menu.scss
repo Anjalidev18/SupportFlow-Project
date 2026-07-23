@@ -1,0 +1,147 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.user-menu {
+  position: relative;
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    padding: $space-1 $space-2;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: $radius-md;
+    cursor: pointer;
+    transition:
+      background-color $transition-fast,
+      border-color $transition-fast;
+
+    &:hover {
+      background-color: $color-surface-hover;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+    }
+  }
+
+  &__avatar {
+    @include flex-center;
+    width: 32px;
+    height: 32px;
+    background-color: $color-primary-subtle;
+    border-radius: $radius-full;
+    flex-shrink: 0;
+  }
+
+  &__avatar-text {
+    font-size: 11px;
+    font-weight: $font-weight-semibold;
+    color: $color-primary;
+    letter-spacing: 0.02em;
+  }
+
+  &__info {
+    display: none;
+    flex-direction: column;
+    min-width: 0;
+    text-align: left;
+
+    @include respond-to(md) {
+      display: flex;
+    }
+  }
+
+  &__name {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text;
+    @include truncate;
+    max-width: 120px;
+  }
+
+  &__email {
+    font-size: $font-size-xs;
+    color: $color-text-tertiary;
+    @include truncate;
+    max-width: 120px;
+  }
+
+  &__chevron {
+    display: none;
+    color: $color-text-tertiary;
+    flex-shrink: 0;
+
+    @include respond-to(md) {
+      display: block;
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: calc(100% + $space-2);
+    right: 0;
+    z-index: 50;
+    min-width: 160px;
+    padding: $space-1;
+    background-color: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    box-shadow: $shadow-md;
+    list-style: none;
+    margin: 0;
+    animation: user-menu-fade-in $transition-fast ease;
+  }
+
+  &__item {
+    display: block;
+    width: 100%;
+    padding: $space-2 $space-3;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text;
+    text-align: left;
+    text-decoration: none;
+    background: none;
+    border: none;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background-color: $color-surface-hover;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: -2px;
+    }
+
+    &--danger {
+      color: $color-error;
+
+      &:hover {
+        background-color: #fef2f2;
+      }
+    }
+  }
+}
+
+@keyframes user-menu-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .user-menu__dropdown {
+    animation: none;
+  }
+}

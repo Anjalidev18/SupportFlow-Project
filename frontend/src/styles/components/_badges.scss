@@ -1,0 +1,87 @@
+@use '../base/variables' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: 2px $space-2;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  line-height: 1.5;
+  border-radius: $radius-full;
+  white-space: nowrap;
+
+  &__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  // Status variants
+  &--open {
+    background-color: $status-open-bg;
+    color: $status-open-text;
+
+    .badge__dot {
+      background-color: $status-open-text;
+    }
+  }
+
+  &--in-progress {
+    background-color: $status-in-progress-bg;
+    color: $status-in-progress-text;
+
+    .badge__dot {
+      background-color: $status-in-progress-text;
+    }
+  }
+
+  &--on-hold {
+    background-color: $status-on-hold-bg;
+    color: $status-on-hold-text;
+
+    .badge__dot {
+      background-color: $status-on-hold-text;
+    }
+  }
+
+  &--resolved {
+    background-color: $status-resolved-bg;
+    color: $status-resolved-text;
+
+    .badge__dot {
+      background-color: $status-resolved-text;
+    }
+  }
+
+  &--closed {
+    background-color: $status-closed-bg;
+    color: $status-closed-text;
+
+    .badge__dot {
+      background-color: $status-closed-text;
+    }
+  }
+
+  // Priority variants
+  &--priority-low {
+    background-color: $status-open-bg;
+    color: $priority-low;
+  }
+
+  &--priority-medium {
+    background-color: $status-in-progress-bg;
+    color: $priority-medium;
+  }
+
+  &--priority-high {
+    background-color: #fff7ed;
+    color: $priority-high;
+  }
+
+  &--priority-critical {
+    background-color: #fef2f2;
+    color: $priority-critical;
+  }
+}

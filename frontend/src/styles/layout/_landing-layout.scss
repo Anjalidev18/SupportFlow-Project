@@ -1,0 +1,100 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.landing-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba($color-surface, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid $color-border;
+
+  &__inner {
+    max-width: $content-max-width;
+    margin: 0 auto;
+    padding: $space-4 $space-6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-4;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: $space-4;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+    @include respond-to(md) {
+      gap: $space-6;
+    }
+  }
+
+  &__link {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+    text-decoration: none;
+    transition: color $transition-fast;
+    white-space: nowrap;
+
+    &:hover {
+      color: $color-text;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+      border-radius: $radius-sm;
+    }
+
+    &--active {
+      color: $color-primary;
+    }
+  }
+
+  &__auth {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    margin-left: $space-2;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.landing-footer {
+  margin-top: auto;
+  padding: $space-8 $space-6;
+  text-align: center;
+  border-top: 1px solid $color-border;
+
+  p {
+    font-size: $font-size-sm;
+    color: $color-text-tertiary;
+  }
+
+  a {
+    color: $color-text-secondary;
+    font-weight: $font-weight-medium;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+      border-radius: $radius-sm;
+    }
+  }
+}

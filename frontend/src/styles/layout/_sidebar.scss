@@ -1,0 +1,97 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 40;
+  opacity: 0;
+  transition: opacity $transition-base;
+
+  &--visible {
+    @media (max-width: #{$bp-lg - 1px}) {
+      display: block;
+      opacity: 1;
+    }
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  width: $sidebar-width;
+  height: 100vh;
+  background-color: $color-surface;
+  border-right: 1px solid $color-border;
+  transform: translateX(-100%);
+  transition: transform $transition-base;
+
+  @include respond-to(lg) {
+    transform: translateX(0);
+  }
+
+  &--open {
+    transform: translateX(0);
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    height: 56px;
+    padding: 0 $space-5;
+    border-bottom: 1px solid $color-border;
+    flex-shrink: 0;
+  }
+
+  &__nav {
+    flex: 1;
+    padding: $space-4 $space-3;
+    overflow-y: auto;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-1;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    padding: $space-2 $space-3;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+    border-radius: $radius-md;
+    transition: background-color $transition-fast, color $transition-fast;
+
+    &:hover {
+      background-color: $color-surface-hover;
+      color: $color-text;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: -2px;
+    }
+
+    &--active {
+      background-color: $color-primary-subtle;
+      color: $color-primary;
+      border-left: 2px solid $color-primary;
+      padding-left: calc(#{$space-3} - 2px);
+
+      &:hover {
+        background-color: $color-primary-subtle;
+        color: $color-primary-hover;
+      }
+    }
+  }
+}

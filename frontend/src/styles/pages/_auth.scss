@@ -1,0 +1,184 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.auth-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-bg;
+
+  &__header {
+    padding: $space-4 $space-6;
+    border-bottom: 1px solid $color-border;
+    background-color: rgba($color-surface, 0.9);
+    backdrop-filter: blur(8px);
+  }
+
+  &__main {
+    flex: 1;
+    @include flex-center;
+    padding: $space-8 $space-6;
+  }
+
+  &__footer {
+    padding: $space-6;
+    text-align: center;
+    border-top: 1px solid $color-border;
+
+    p {
+      font-size: $font-size-sm;
+      color: $color-text-tertiary;
+    }
+
+    a {
+      color: $color-text-secondary;
+      font-weight: $font-weight-medium;
+      text-decoration: none;
+
+      &:hover {
+        color: $color-primary;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $color-primary;
+        outline-offset: 2px;
+        border-radius: $radius-sm;
+      }
+    }
+  }
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $space-8;
+  box-shadow: $shadow-sm;
+
+  &__header {
+    margin-bottom: $space-6;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    letter-spacing: -0.02em;
+    margin-bottom: $space-2;
+  }
+
+  &__subtitle {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    line-height: $line-height-relaxed;
+  }
+
+  &__body {
+    .form-group + .form-group {
+      margin-top: $space-4;
+    }
+  }
+
+  &__footer {
+    margin-top: $space-6;
+    padding-top: $space-5;
+    border-top: 1px solid $color-border;
+    text-align: center;
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+
+    a {
+      font-weight: $font-weight-medium;
+      text-decoration: none;
+
+      &:focus-visible {
+        outline: 2px solid $color-primary;
+        outline-offset: 2px;
+        border-radius: $radius-sm;
+      }
+    }
+  }
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: $space-1;
+    margin-bottom: $space-2;
+  }
+
+  &__link {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-primary-hover;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+      border-radius: $radius-sm;
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    margin-top: $space-4;
+  }
+}
+
+.auth-form-error {
+  margin-bottom: $space-4;
+}
+
+.auth-success {
+  text-align: center;
+
+  &__icon {
+    @include flex-center;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto $space-4;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-success;
+    background-color: #f0fdf4;
+    border-radius: $radius-full;
+  }
+
+  &__title {
+    font-size: $font-size-md;
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+    margin-bottom: $space-2;
+  }
+
+  &__message {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    line-height: $line-height-relaxed;
+    margin-bottom: $space-5;
+  }
+
+  &__actions {
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.route-loader {
+  @include flex-center;
+  min-height: 100vh;
+  background-color: $color-bg;
+}

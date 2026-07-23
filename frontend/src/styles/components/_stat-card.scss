@@ -1,0 +1,115 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.stat-card {
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $space-5;
+  transition:
+    border-color $transition-fast,
+    box-shadow $transition-fast,
+    transform $transition-fast;
+
+  &:hover {
+    border-color: $color-border-strong;
+    box-shadow: $shadow-sm;
+  }
+
+  &--featured {
+    border-left: 3px solid $color-primary;
+  }
+
+  &--interactive {
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $space-4;
+  }
+
+  &__icon {
+    @include flex-center;
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-md;
+
+    &--default {
+      background-color: $color-primary-subtle;
+      color: $color-primary;
+    }
+
+    &--open {
+      background-color: $status-open-bg;
+      color: $status-open-text;
+    }
+
+    &--progress {
+      background-color: $status-in-progress-bg;
+      color: $status-in-progress-text;
+    }
+
+    &--resolved {
+      background-color: $status-resolved-bg;
+      color: $status-resolved-text;
+    }
+  }
+
+  &__trend {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    padding: 2px $space-2;
+    border-radius: $radius-full;
+
+    &--positive {
+      color: $color-success;
+      background-color: #f0fdf4;
+    }
+
+    &--negative {
+      color: $color-error;
+      background-color: #fef2f2;
+    }
+
+    &--neutral {
+      color: $color-text-secondary;
+      background-color: $color-surface-hover;
+    }
+  }
+
+  &__value {
+    font-size: 1.75rem;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: $space-2;
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    font-weight: $font-weight-medium;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-card--interactive:hover {
+    transform: none;
+  }
+}

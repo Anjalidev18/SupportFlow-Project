@@ -1,0 +1,81 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.reports-page {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+
+  .reports-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-4;
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include respond-to(xl) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  &__charts {
+    display: flex;
+    flex-direction: column;
+    gap: $space-5;
+  }
+
+  &__chart-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-5;
+
+    @include respond-to(lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__chart-card {
+    height: 100%;
+  }
+
+  &__loading {
+    @include flex-center;
+    min-height: 280px;
+  }
+}
+
+.reports-chart-card {
+  padding: $space-5;
+
+  &__header {
+    margin-bottom: $space-4;
+  }
+
+  &__title {
+    font-size: $font-size-md;
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+  }
+
+  &__description {
+    margin-top: $space-1;
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+  }
+
+  &__chart {
+    width: 100%;
+    min-height: 280px;
+  }
+
+  .empty-state {
+    min-height: 220px;
+    padding: $space-6 $space-4;
+  }
+}

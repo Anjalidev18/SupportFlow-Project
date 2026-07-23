@@ -1,0 +1,29 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.app-layout {
+  min-height: 100vh;
+  background-color: $color-bg;
+
+  &__main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    @include respond-to(lg) {
+      margin-left: $sidebar-width;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    padding: $space-6;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+
+    @include respond-to(md) {
+      padding: $space-8;
+    }
+  }
+}

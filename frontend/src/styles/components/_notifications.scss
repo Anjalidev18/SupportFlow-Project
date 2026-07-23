@@ -1,0 +1,87 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.toast-container {
+  position: fixed;
+  top: $space-4;
+  right: $space-4;
+  z-index: $z-toast;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  max-width: 380px;
+}
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-3;
+  padding: $space-3 $space-4;
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+  font-size: $font-size-sm;
+
+  &--success {
+    border-left: 3px solid $color-success;
+  }
+
+  &--error {
+    border-left: 3px solid $color-error;
+  }
+
+  &--info {
+    border-left: 3px solid $color-info;
+  }
+
+  &--warning {
+    border-left: 3px solid $color-warning;
+  }
+
+  &__message {
+    flex: 1;
+    color: $color-text;
+  }
+
+  &__close {
+    @include flex-center;
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: none;
+    color: $color-text-tertiary;
+    border-radius: $radius-sm;
+    flex-shrink: 0;
+
+    &:hover {
+      background-color: $color-surface-hover;
+      color: $color-text;
+    }
+  }
+}
+
+.alert {
+  padding: $space-3 $space-4;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  border: 1px solid;
+
+  &--info {
+    background-color: $color-primary-subtle;
+    border-color: rgba($color-primary, 0.2);
+    color: $color-primary-hover;
+  }
+
+  &--error {
+    background-color: #fef2f2;
+    border-color: rgba($color-error, 0.2);
+    color: $color-error;
+  }
+
+  &--success {
+    background-color: #f0fdf4;
+    border-color: rgba($color-success, 0.2);
+    color: $color-success;
+  }
+}

@@ -1,0 +1,156 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.ticket-data-table {
+  &__wrapper {
+    max-height: 420px;
+    overflow: auto;
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  &__row {
+    transition: background-color $transition-fast;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-1;
+  }
+
+  &__id {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+    font-family: 'SF Mono', 'Fira Code', ui-monospace, monospace;
+    white-space: nowrap;
+  }
+
+  &__title-cell {
+    max-width: 280px;
+  }
+
+  &__ticket-title {
+    display: block;
+    font-weight: $font-weight-medium;
+    color: $color-text;
+    @include truncate;
+  }
+
+  &__customer {
+    display: block;
+    font-size: $font-size-xs;
+    color: $color-text-tertiary;
+    margin-top: 2px;
+    @include truncate;
+  }
+
+  &__assignee {
+    font-size: $font-size-sm;
+    color: $color-text;
+  }
+
+  &__unassigned {
+    font-size: $font-size-sm;
+    color: $color-text-tertiary;
+    font-style: italic;
+  }
+
+  &__time {
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+    white-space: nowrap;
+  }
+
+  &__actions-col {
+    width: auto;
+    min-width: 72px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  &__action-btn {
+    @include flex-center;
+    width: 28px;
+    height: 28px;
+    background: none;
+    border: none;
+    border-radius: $radius-md;
+    color: $color-text-secondary;
+    cursor: pointer;
+    transition:
+      background-color $transition-fast,
+      color $transition-fast;
+
+    &:hover {
+      background-color: $color-surface-hover;
+      color: $color-text;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+    }
+
+    &--danger:hover {
+      color: $color-error;
+    }
+  }
+
+  &__hide-sm {
+    @media (max-width: #{$bp-sm - 1px}) {
+      display: none;
+    }
+  }
+
+  &__hide-md {
+    @media (max-width: #{$bp-md - 1px}) {
+      display: none;
+    }
+  }
+}
+
+.recent-tickets {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $space-5 $space-5 0;
+    margin-bottom: $space-4;
+  }
+
+  &__title {
+    font-size: $font-size-md;
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+  }
+
+  &__link {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-primary-hover;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+      border-radius: $radius-sm;
+    }
+  }
+
+  .table-wrapper {
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid $color-border;
+  }
+}

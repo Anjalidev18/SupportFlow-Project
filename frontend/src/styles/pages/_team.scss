@@ -1,0 +1,129 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.team-page {
+  &__loading {
+    @include flex-center;
+    min-height: 280px;
+  }
+
+  &__error {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $space-3;
+    margin-bottom: var(--space-4);
+  }
+}
+
+.team-table {
+  &__wrapper {
+    overflow-x: auto;
+  }
+
+  &__name {
+    display: block;
+    font-weight: $font-weight-medium;
+    color: $color-text;
+  }
+
+  &__email,
+  &__email-mobile {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+  }
+
+  &__email-mobile {
+    display: none;
+    margin-top: 2px;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-1;
+  }
+
+  &__actions-col {
+    width: auto;
+    min-width: 72px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  &__action-btn {
+    @include flex-center;
+    width: 28px;
+    height: 28px;
+    background: none;
+    border: none;
+    border-radius: $radius-md;
+    color: $color-text-secondary;
+    cursor: pointer;
+    transition:
+      background-color $transition-fast,
+      color $transition-fast;
+
+    &:hover {
+      background-color: $color-surface-hover;
+      color: $color-text;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+    }
+
+    &--danger:hover {
+      color: $color-error;
+    }
+  }
+
+  &__hide-sm {
+    @media (max-width: #{$bp-sm - 1px}) {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: #{$bp-sm - 1px}) {
+  .team-table__email-mobile {
+    display: block;
+  }
+}
+
+.member-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px $space-2;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  border-radius: $radius-full;
+  white-space: nowrap;
+
+  &--role-admin {
+    background-color: #ede9fe;
+    color: #6d28d9;
+  }
+
+  &--role-agent {
+    background-color: $color-primary-subtle;
+    color: $color-primary-hover;
+  }
+
+  &--role-viewer {
+    background-color: $status-open-bg;
+    color: $status-open-text;
+  }
+
+  &--status-active {
+    background-color: $status-resolved-bg;
+    color: $status-resolved-text;
+  }
+
+  &--status-inactive {
+    background-color: $status-closed-bg;
+    color: $status-closed-text;
+  }
+}

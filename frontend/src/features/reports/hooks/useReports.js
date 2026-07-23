@@ -1,0 +1,29 @@
+import { useCallback, useEffect, useState } from 'react';
+import { fetchReportsData } from '../services/reportsApi';
+
+export function useReports() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const refetch = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const result = await fetchReportsData();
+      setData(result);
+    } catch (err) {
+      setError(err.message || 'Failed to load reports');
+      setData(null);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
+
+  return { data, loading, error, refetch };
+}

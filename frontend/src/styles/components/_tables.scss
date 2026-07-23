@@ -1,0 +1,44 @@
+@use '../base/variables' as *;
+
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  background-color: $color-surface;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $font-size-sm;
+
+  th {
+    padding: $space-3 $space-4;
+    text-align: left;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+    background-color: $color-surface-hover;
+    border-bottom: 1px solid $color-border;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: $space-3 $space-4;
+    border-bottom: 1px solid $color-border;
+    color: $color-text;
+    vertical-align: middle;
+  }
+
+  tbody tr {
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background-color: $color-surface-hover;
+    }
+
+    &:last-child td {
+      border-bottom: none;
+    }
+  }
+}

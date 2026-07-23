@@ -1,0 +1,44 @@
+@use 'base/reset';
+@use 'base/typography';
+@use 'components/buttons';
+@use 'components/forms';
+@use 'components/cards';
+@use 'components/tables';
+@use 'components/badges';
+@use 'components/notifications';
+@use 'components/states';
+@use 'components/brand-logo';
+@use 'components/sections';
+@use 'components/feature-card';
+@use 'components/stat-card';
+@use 'components/activity-feed';
+@use 'components/volume-chart';
+@use 'components/status-breakdown';
+@use 'components/quick-actions';
+@use 'components/user-menu';
+@use 'components/ticket-data-table';
+@use 'components/modal';
+@use 'layout/sidebar';
+@use 'layout/topnav';
+@use 'layout/app-layout';
+@use 'layout/page-header';
+@use 'layout/landing-layout';
+@use 'pages/auth';
+@use 'pages/about';
+@use 'pages/dashboard';
+@use 'pages/landing';
+@use 'pages/tickets';
+@use 'pages/team';
+@use 'pages/reports';
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
